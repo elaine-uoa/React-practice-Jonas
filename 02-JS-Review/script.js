@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(1);
+const book = getBook(3);
 book;
 
 // const title = book.title;
@@ -168,3 +168,28 @@ const updatedBook = {
   pages: 1210, // updating/overwriting an existing property
 };
 updatedBook;
+
+// Arrow functions
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${getYear(publicationDate)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted into a movie.`;
+summary;
+
+const pagesRange = pages > 1000 ? "over 1000" : "less than 1000";
+pagesRange;
+
+// Short-circuiting
+const count = book.reviews.librarything?.reviewsCount ?? "no data";
+count;
+
+// Optional chaining
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount ?? 0;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  return goodreads + librarything;
+}
+console.log(getTotalReviewCount(book));
