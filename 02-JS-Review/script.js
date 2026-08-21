@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(3);
+/* const book = getBook(3);
 book;
 
 // const title = book.title;
@@ -193,3 +193,33 @@ function getTotalReviewCount(book) {
   return goodreads + librarything;
 }
 console.log(getTotalReviewCount(book));
+ */
+
+const books = getBooks();
+// Array methods: map
+/* const arr = [1, 2, 3, 4, 5];
+// return a new array with the same length, but with each element modified in some way. The original array is not modified.
+const newArr = arr.map((el) => el * 2);
+newArr;
+
+const titles = books.map((book) => book.title);
+titles;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+}));
+essentialData;
+ */
+
+// Array methods: filter
+// return a new array with only the elements that pass a certain condition. The original array is not modified.
+const longBooksWithMovie = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+longBooksWithMovie;
+
+const adventureBooks = books.filter((book) =>
+  book.genres.includes("adventure"),
+);
+adventureBooks;
