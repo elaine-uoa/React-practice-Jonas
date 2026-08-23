@@ -213,7 +213,7 @@ essentialData;
  */
 
 // Array methods: filter
-// return a new array with only the elements that pass a certain condition. The original array is not modified.
+/* // return a new array with only the elements that pass a certain condition. The original array is not modified.
 const longBooksWithMovie = books
   .filter((book) => book.pages > 500)
   .filter((book) => book.hasMovieAdaptation);
@@ -222,4 +222,43 @@ longBooksWithMovie;
 const adventureBooks = books.filter((book) =>
   book.genres.includes("adventure"),
 );
-adventureBooks;
+adventureBooks; */
+
+// Array methods: reduce
+/* // return a single value based on the elements of the array. The original array is not modified.
+const totalPages = books.reduce((sum, book) => sum + book.pages, 0);
+totalPages; */
+
+// Array methods: sort
+/* // sort the elements of the array in place and return the sorted array. The original array is modified.
+const x = [3, 7, 1, 9, 6];
+const sortedX = x.slice().sort((a, b) => a - b); // ascending order
+sortedX;
+x;
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;*/
+
+// Working with immutable arrays
+/* // 1. Add a new book to the array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J. K. Rowling",
+};
+
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// 2. Delete a book from the array
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id != 3);
+booksAfterDelete;
+
+// 3. Update book objects in the array
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1210 } : book,
+);
+booksAfterUpdate;
+ */
+
+//
