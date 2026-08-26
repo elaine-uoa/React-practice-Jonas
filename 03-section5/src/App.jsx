@@ -1,3 +1,5 @@
+import "./index.css";
+
 const pizzaData = [
   {
     name: "Focaccia",
@@ -45,29 +47,55 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
-      <h1>Hello React!</h1>
+    <div className="container">
       <Header />
       <Menu />
-
       <Footer />
     </div>
   );
 }
 
 function Header() {
+  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+  const style = {};
+
   return (
-    <div>
-      <h1>Fast React Pizza Co.</h1>
-    </div>
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
   );
 }
 
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price={12}
+      />
+
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella, mushrooms, and onion"
+        photoName="pizzas/funghi.jpg"
+        price={12}
+      />
+    </main>
+  );
+}
+
+function Pizza({ name, ingredients, photoName, price }) {
+  return (
+    <div className="pizza">
+      <img src={photoName} alt={name} />
+      <div>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>${price.toFixed(2)}</span>
+      </div>
     </div>
   );
 }
@@ -80,20 +108,10 @@ function Footer() {
 
   return (
     <div>
-      <footer>
+      <footer className="footer">
         {new Date().toLocaleTimeString()}. We're currently{" "}
         {isOpen ? "open" : "closed"}!
       </footer>
-    </div>
-  );
-}
-
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizza Spinaci" />
-      <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
     </div>
   );
 }
