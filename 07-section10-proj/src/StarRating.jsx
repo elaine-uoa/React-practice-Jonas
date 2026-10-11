@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 const containerStyle = {
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   alignItems: "center",
-  gap: "0.5rem",
+  gap: "1.5rem",
 };
 
 const starsContainerStyle = {
@@ -20,6 +20,7 @@ StarRating.propTypes = {
   size: PropTypes.number,
   messages: PropTypes.array,
   className: PropTypes.string,
+  onSetRating: PropTypes.func,
 };
 
 export default function StarRating({
@@ -29,12 +30,14 @@ export default function StarRating({
   className = "",
   messages = [],
   defaultRating = 0,
+  onSetRating,
 }) {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
 
   function handleRating(rating) {
     setRating(rating);
+    onSetRating?.(rating);
   }
 
   const textStyle = {
