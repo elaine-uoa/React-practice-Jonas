@@ -1,9 +1,15 @@
-import DateCounter from "./DateCounter.jsx";
+import Header from "./Header";
+import MainPart from "./MainPart";
 
 export default function App() {
   return (
-    <div>
-      <DateCounter />
+    <div className="app">
+      <Header />
+
+      <MainPart>
+        <p>1/15</p>
+        <p>Questions?</p>
+      </MainPart>
     </div>
   );
 }
